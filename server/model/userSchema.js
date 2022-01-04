@@ -3,7 +3,11 @@ const mongooose = require('mongoose');
 const bcrypt = require('bcryptjs');
 
 const userSchema = new mongooose.Schema({
-    name: {
+    first_name: {
+        type: String,
+        required:true
+    },
+    last_name: {
         type: String,
         required:true
     },
@@ -15,8 +19,8 @@ const userSchema = new mongooose.Schema({
         type: Number,
         required:true
     },
-    work: {
-         type: String,
+    address: {
+        type: String,
         required:true
     },
     password: {
@@ -33,9 +37,13 @@ const userSchema = new mongooose.Schema({
     },
     messages:[
         {
-            name: {
+            first_name: {
                 type: String,
                 required:true
+            },
+            last_name: {
+                type: String,
+                required:true,
             },
             email: {
                 type: String,
@@ -43,6 +51,10 @@ const userSchema = new mongooose.Schema({
             },
             phone: {
                 type: Number,
+                required:true
+            },
+            address: {
+                type: String,
                 required:true
             },
             message: {
@@ -87,9 +99,9 @@ userSchema.methods.generateAuthToken = async function () {
 
 // storing the message 
 
-userSchema.methods.addMessage = async function (name, email, phone, message) {
+userSchema.methods.addMessage = async function (first_name,last_name, email, phone, address, message) {
     try {
-        this.messages = this.messages.concat({ name, email, phone, message });
+        this.messages = this.messages.concat({ first_name,last_name, email, phone, address, message });
         await this.save();
         return this.messages;
     } catch (error) {
