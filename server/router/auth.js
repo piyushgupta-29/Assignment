@@ -14,9 +14,9 @@ router.get('/', (req, res) => {
 
 router.post('/register', async (req, res) => {
 
-    const { name, email, phone, work, password, cpassword} = req.body;
+    const { first_name, last_name, email, phone, address, password, cpassword} = req.body;
     
-    if (!name || !email || !phone || !work || !password || !cpassword) {
+    if (!first_name || !last_name || !email || !phone || !address || !password || !cpassword) {
         return res.status(422).json({ error: "Plz filled the field properly" });
     }
 
@@ -29,7 +29,7 @@ router.post('/register', async (req, res) => {
         } else if (password != cpassword) {
              return res.status(422).json({ error: "password are not matching" });
         } else {
-             const user = new User({ name, email, phone, work, password, cpassword });
+             const user = new User({ name, email, phone, address, password, cpassword });
             await user.save();
             res.status(201).json({ message: "user registered successfuly" });
         }
@@ -97,9 +97,9 @@ router.get('/getdata', authenticate, (req, res) => {
 router.post('/contact', authenticate, async (req, res) => {
     try {
 
-        const { name, email, phone, message } = req.body;
+        const { first_name,last_name, email, phone, address, message } = req.body;
         
-        if (!name || !email || !phone || !message) {
+        if (!first_name || !last_name || !email || !phone || !address || !message) {
             console.log("error in contact form");
             return res.json({ error: "plzz filled the contact form " });
         }
@@ -108,7 +108,7 @@ router.post('/contact', authenticate, async (req, res) => {
 
         if (userContact) {
             
-            const userMessage = await userContact.addMessage(name, email, phone, message);
+            const userMessage = await userContact.addMessage(first_name, last_name, email, phone, address, message);
 
             await userContact.save();
 
