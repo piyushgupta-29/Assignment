@@ -6,7 +6,7 @@
   "proxy": "http://localhost:5000/" in package.json file of Reactjs folder.
   
   Contents in Server folder:
-  1: db: The db folder contains conn.js which is used to connect to local mongoDB server.
+  1: db: The db folder contains conn.js which is used to connect to mongoDB atlas cluster or the local mongoDB server.
   2: middleware: The middleware folder contains authenticate.js which ensures that the user cannot visit aboutus page unless he is signed in using jsonwebtokens(jwt).
   3: model: The model folder contains userSchema.js which defines the schema of the database.Password hashing and assigning jwt token is also done here.
   4: router: The router folder contains auth.js which handles all the routings.
