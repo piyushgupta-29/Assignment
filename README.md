@@ -17,6 +17,7 @@
   2: src:
     components: The components folder contains all the pages used such as Home page,user profile(about) page,sign in page,sign out page.
                 Bootstrap is used to design all the pages and react hooks are used to route the pages.
+    reducer: The reducer folder contains useReducer.js which is used to store and update states instead of using useState.
     images: All the images used in the project are stored here.
     app.js: The user is rerouted to the page he requested in app.js
     index.js: The contents of app.js are rendered to index.html using index.js
