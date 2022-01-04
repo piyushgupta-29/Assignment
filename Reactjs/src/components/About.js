@@ -53,46 +53,21 @@ const About = () => {
 
                          <div className="col-md-6">
                             <div className="profile-head">
-                                <h5>{ userData.name}</h5>
-                                <h6>{ userData.work}</h6>
-                                <p className="profile-rating mt-3 mb-5">RANKINGS: <span> 1/10 </span></p>
-
-
-                                <ul className="nav nav-tabs" role="tablist">
+                                <h5>{ userData.first_name+' '+userData.last_name}</h5>
+                                <ul className="nav nav-tabs">
                                     <li className="nav-item">
                                    <a className="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">About</a>
-                                    </li>
-                                    <li className="nav-item">
-                                       <a className="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Timeline</a>
-                    
                                     </li>
                                 </ul>
                            </div>
                         </div>
-
                         <div className="col-md-2">
                             <input type="submit" className="profile-edit-btn" name="btnAddMore" value="Edit Profile" />
                         </div>
-
                     </div>
 
-
-
                     <div className="row">
-                        <div className="col-md-4">
-                            <div className="profile-work">
-                                <p> WORK LINK</p>
-                                <a href="#" target="_thapa">Compeditive Programming</a> <br />
-                                <a href="#" target="_thapa">Instagram</a> <br />
-                                <a href="#" target="_thapa">Thapa Technical</a> <br />
-                                <a href="#" target="_thapa">Facebook</a> <br />
-                                <a href="#" target="_thapa">Web Developer</a> <br />
-                                <a href="#" target="_thapa">Figma</a> <br />
-                                <a href="#" target="_thapa">Software Engineer</a> <br />
-                                
-                            </div>
-                        </div> 
-
+                       
                      <div className="col-md-8 pl-5 about-info">
                         <div className="tab-content profile-tab" id="myTabContent">
                             <div className="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
@@ -101,7 +76,7 @@ const About = () => {
                                                <label>User Id</label>
                                             </div>
                                             <div className="col-md-6">
-                                            <p>787865454546</p>
+                                            <p>{userData._id}</p>
                                             </div>
                                         </div>
                                         <div className="row mt-3">
@@ -109,7 +84,7 @@ const About = () => {
                                                 <label>Name</label>
                                             </div>
                                             <div className="col-md-6 ">
-                                                <p>{ userData.name}</p>
+                                                <p>{ userData.first_name +' '+ userData.last_name}</p>
                                             </div>
                                         </div>
                                         <div className="row mt-3">
@@ -130,55 +105,12 @@ const About = () => {
                                         </div>
                                         <div className="row mt-3">
                                             <div className="col-md-6">
-                                                <label>Profession</label>
+                                                <label>Address</label>
                                             </div>
                                             <div className="col-md-6">
-                                                <p>Web Devloper</p>
+                                                <p>{userData.address}</p>
                                             </div>
                                         </div>
-                            </div>
-                            <div className="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                                        <div className="row">
-                                            <div className="col-md-6">
-                                                <label>Experience</label>
-                                            </div>
-                                            <div className="col-md-6">
-                                                <p>Expert</p>
-                                            </div>
-                                        </div>
-                                        <div className="row mt-3">
-                                            <div className="col-md-6">
-                                                <label>Hourly Rate</label>
-                                            </div>
-                                            <div className="col-md-6">
-                                                <p>10$/hr</p>
-                                            </div>
-                                        </div>
-                                        <div className="row mt-3">
-                                            <div className="col-md-6">
-                                                <label>Total Projects</label>
-                                            </div>
-                                            <div className="col-md-6">
-                                                <p>230</p>
-                                            </div>
-                                        </div>
-                                        <div className="row mt-3">
-                                            <div className="col-md-6">
-                                                <label>English Level</label>
-                                            </div>
-                                            <div className="col-md-6">
-                                                <p>Expert</p>
-                                            </div>
-                                        </div>
-                                        <div className="row mt-3">
-                                            <div className="col-md-6">
-                                                <label>Availability</label>
-                                            </div>
-                                            <div className="col-md-6">
-                                                <p>6 months</p>
-                                            </div>
-                                        </div>
-                              
                             </div>
                         </div>
                     </div>
