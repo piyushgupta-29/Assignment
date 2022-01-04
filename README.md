@@ -15,7 +15,7 @@
   Contents in Reactjs folder: 
   1: public: The public folder mainly contains index.html which only contains the one div element.
   2: src:
-    components: The components folder contains all the pages used such as Home page,user profile(about) page,contact page,sign in page,sign out page,error page,etc.
+    components: The components folder contains all the pages used such as Home page,user profile(about) page,sign in page,sign out page.
                 Bootstrap is used to design all the pages and react hooks are used to route the pages.
     images: All the images used in the project are stored here.
     app.js: The user is rerouted to the page he requested in app.js
