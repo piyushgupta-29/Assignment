@@ -5,7 +5,7 @@ import signpic from "../images/signup.svg";
 const Signup = () => {
     const history = useHistory();
     const [user, setUser] = useState({
-        name: "", email: "", phone: "", work: "", password: "", cpassword: ""
+        first_name: "",last_name: "", email: "", phone: "", address: "", password: "", cpassword: ""
     });
 
     let name, value;
@@ -22,7 +22,7 @@ const Signup = () => {
     const PostData = async (e) => {
         e.preventDefault();
 
-        const { name, email, phone, work, password, cpassword } = user;
+        const { first_name, last_name, email, phone, address, password, cpassword } = user;
 
         const res = await fetch("/register", {
             method: "POST",
@@ -62,10 +62,21 @@ const Signup = () => {
                                     <label htmlFor="name">
                                         <i className="zmdi zmdi-account material-icons-name"></i>
                                     </label>
-                                    <input type="text" name="name" id="name" autocomplete="off"
-                                        value={user.name}
+                                    <input type="text" name="firstname" id="firstname" autocomplete="off"
+                                        value={user.first_name}
                                         onChange={handleInputs}
-                                        placeholder="Your Name"
+                                        placeholder="Your First Name"
+                                    />
+                                </div>
+
+                                <div className="form-group">
+                                    <label htmlFor="name">
+                                        <i className="zmdi zmdi-account material-icons-name"></i>
+                                    </label>
+                                    <input type="text" name="lastname" id="lastname" autocomplete="off"
+                                        value={user.last_name}
+                                        onChange={handleInputs}
+                                        placeholder="Your Last Name"
                                     />
                                 </div>
 
@@ -91,14 +102,14 @@ const Signup = () => {
                                     />
                                 </div>
 
-                                 <div className="form-group">
-                                    <label htmlFor="work">
-                                        <i className="zmdi zmdi-slideshow material-icons-name"></i>
+                                <div className="form-group">
+                                    <label htmlFor="address">
+                                        <i className="zmdi zmdi-address material-icons-name"></i>
                                     </label>
-                                    <input type="text" name="work" id="work" autoComplete="off"
-                                        value={user.work}
+                                    <input type="address" name="address" id="address" autoComplete="off"
+                                        value={user.address}
                                         onChange={handleInputs}
-                                        placeholder="Your Profession"
+                                        placeholder="Your address"
                                     />
                                 </div>
 
