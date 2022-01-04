@@ -14,14 +14,20 @@ app.use(express.json());
 // linked router files to make app.js clean 
 app.use(require('./router/auth'));
 
-const PORT = process.env.PORT;
+const PORT = 5000;
 
 app.get('/signup', (req, res) => {
     res.send(`Hello Registration world from the server`);
 });
 
-app.listen(PORT, () => {
-    console.log(`server is runnig at port no ${PORT}`);
+app.listen(PORT, (err) => {
+    if(!err)
+    {
+        alert("Hello, nice to see you Iriatech Innovation & technology Pvt Ltd");
+        console.log(`server is runnig at port no ${PORT}`);
+    }
+    else    
+        console.log(err);
 })
 
 
