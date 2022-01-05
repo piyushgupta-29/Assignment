@@ -30,5 +30,6 @@
     reducer: The reducer folder contains useReducer.js which is used to store and update states instead of using useState.
     images: All the images used in the project are stored here.
     app.js: The user is rerouted to the page he requested in app.js
+    app.css: Css used in all components is written here.
     index.js: The contents of app.js are rendered to index.html using index.js
     
