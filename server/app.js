@@ -9,24 +9,21 @@ app.use(cookieParser());
 dotenv.config({ path: './config.env' });
 
 require('./db/conn');
+// const User = require('./model/userSchema');
+
 app.use(express.json());
 
-// linked router files to make app.js clean 
+// we link the router files to make our route easy 
 app.use(require('./router/auth'));
 
-const PORT = 5000;
+const PORT = process.env.PORT;
 
 app.get('/signup', (req, res) => {
     res.send(`Hello Registration world from the server`);
 });
 
-app.listen(PORT, (err) => {
-    if(!err)
-    {
-        console.log(`server is runnig at port no ${PORT}`);
-    }
-    else    
-        console.log(err);
+app.listen(PORT, () => {
+    console.log(`server is running at port no ${PORT}`);
 })
 
 
