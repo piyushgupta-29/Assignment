@@ -1,6 +1,9 @@
 # Assignment
   My name is Piyush Gupta and I have completed the assignment as it was required. 
   
+  I have hosted the website on heroku, paste the link on url to check it out:
+  "https://iraitech-innovations.herokuapp.com/".
+  
   To run the application in your computer do the following steps:
   1. Clone the repository in your computer.
   2. Run npm/yarn install in reactjs and server folder to download all the dependencies.
