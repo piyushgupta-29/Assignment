@@ -20,7 +20,7 @@ const userSchema = new mongooose.Schema({
         required:true
     },
     address: {
-        type: String,
+         type: String,
         required:true
     },
     password: {
@@ -43,7 +43,7 @@ const userSchema = new mongooose.Schema({
             },
             last_name: {
                 type: String,
-                required:true,
+                required:true
             },
             email: {
                 type: String,
@@ -51,10 +51,6 @@ const userSchema = new mongooose.Schema({
             },
             phone: {
                 type: Number,
-                required:true
-            },
-            address: {
-                type: String,
                 required:true
             },
             message: {
@@ -73,10 +69,8 @@ const userSchema = new mongooose.Schema({
     ]
 })
 
-
 // hashing the password  
 userSchema.pre('save', async function (next) {
- console.log("Hii I am pre ");
     if (this.isModified('password')) {
         console.log("Hii I am pre password ");
         this.password = await bcrypt.hash(this.password, 12);
@@ -99,9 +93,9 @@ userSchema.methods.generateAuthToken = async function () {
 
 // storing the message 
 
-userSchema.methods.addMessage = async function (first_name,last_name, email, phone, address, message) {
+userSchema.methods.addMessage = async function (first_name, last_name, email, phone, message) {
     try {
-        this.messages = this.messages.concat({ first_name,last_name, email, phone, address, message });
+        this.messages = this.messages.concat({ first_name, last_name, email, phone, message });
         await this.save();
         return this.messages;
     } catch (error) {
@@ -111,7 +105,7 @@ userSchema.methods.addMessage = async function (first_name,last_name, email, pho
 
 
 // collection creation 
-const User = mongooose.model('USER', userSchema);
+const User = mongooose.model('User', userSchema);
 
 module.exports = User;
 
