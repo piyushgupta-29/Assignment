@@ -1,5 +1,14 @@
 # Assignment
-  My name is Piyush Gupta and I have completed the assignment as it was required. The details of the files in the repo are as follows:
+  My name is Piyush Gupta and I have completed the assignment as it was required. 
+  
+  To run the application in your computer do the following steps:
+  1. Clone the repository in your computer.
+  2. Run npm/yarn install in reactjs and server folder to download all the dependencies.
+  3. In conn.js, change the DB variable to your local mongoDB.
+  4. Change the PORT in app.js to 5000.
+  5. Run node app.js in server, and npm start in reactjs folder simultaneously.
+  
+  The details of the files in the repo are as follows:
   There are two folders named server and Reactjs.The server folder contains all the backend part including database.The Reactjs contains all the frontend part.
   The elements of the frontend are done using bootstrap.You can see the dependencies used in package.json file in both server and Reactjs folder.
   The backend is running at localhost:5000 whereas the frontend is running at localhost:3000. The frontend and backend are connected by adding 
