@@ -9,7 +9,7 @@ require('../db/conn');
 const User = require("../model/userSchema");
 
 router.get('/', (req, res) => {
-    res.send(`Hello, nice to see you again. Iriatech Innovations & Technology Pvt Ltd`);
+    res.send(`<h2 style="text-align: center;margin: 2rem;">Hello,nice to see you again<h2><br><h1 style="text-align: center;color: blue"> Iriatech Innovations & Technology Pvt Ltd<h1>`);
 });
 
 router.post('/register', async (req, res) => {
