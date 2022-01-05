@@ -9,34 +9,28 @@ require('../db/conn');
 const User = require("../model/userSchema");
 
 router.get('/', (req, res) => {
-    res.send(`<h2 style="text-align: center;margin: 2rem;">Hello,nice to see you again<h2><br><h1 style="text-align: center;color: blue"> Iriatech Innovations & Technology Pvt Ltd<h1>`);
+    res.send(`Hello world from the server rotuer js`);
 });
 
 router.post('/register', async (req, res) => {
-
     const { first_name, last_name, email, phone, address, password, cpassword} = req.body;
-    
     if (!first_name || !last_name || !email || !phone || !address || !password || !cpassword) {
-        return res.status(422).json({ error: "Plz filled the field properly" });
+        return res.status(422).json({ error: "Plz fill the field properly" });
     }
-
     try {
-
         const userExist = await User.findOne({ email: email });
-
         if (userExist) {
              return res.status(422).json({ error: "Email already Exist" });
         } else if (password != cpassword) {
              return res.status(422).json({ error: "password are not matching" });
         } else {
-             const user = new User({ name, email, phone, address, password, cpassword });
-            await user.save();
+             const user = new User({ first_name, last_name, email, phone, address, password, cpassword });
+            let result=await user.save();
             res.status(201).json({ message: "user registered successfuly" });
         }
-        
   
     } catch (err) {
-        console.log(err);
+        console.log("err");
     }
 
 });
@@ -53,12 +47,16 @@ router.post('/signin', async (req, res) => {
         }
 
         const userLogin = await User.findOne({ email: email });
+
+        // console.log(userLogin);
+
         if (userLogin) {
             const isMatch = await bcrypt.compare(password, userLogin.password);
 
         if (!isMatch) {
             res.status(400).json({ error: "Invalid Credientials " });
         } else {
+             // need to genereate the token and stored cookie after the password match 
             token = await userLogin.generateAuthToken();
             console.log(token);
 
@@ -79,7 +77,7 @@ router.post('/signin', async (req, res) => {
 });
 
 
-// about us page 
+// about us ka page 
 
 router.get('/about', authenticate ,(req, res) => {
     console.log(`Hello my About`);
@@ -97,9 +95,9 @@ router.get('/getdata', authenticate, (req, res) => {
 router.post('/contact', authenticate, async (req, res) => {
     try {
 
-        const { first_name,last_name, email, phone, address, message } = req.body;
+        const { first_name, last_name, email, phone, address, message } = req.body;
         
-        if (!first_name || !last_name || !email || !phone || !address || !message) {
+        if (!first_name || last_name || !email || !phone || !address || !message) {
             console.log("error in contact form");
             return res.json({ error: "plzz filled the contact form " });
         }
@@ -108,7 +106,7 @@ router.post('/contact', authenticate, async (req, res) => {
 
         if (userContact) {
             
-            const userMessage = await userContact.addMessage(first_name, last_name, email, phone, address, message);
+            const userMessage = await userContact.addMessage(first_name , last_name, email, phone, address, message);
 
             await userContact.save();
 
@@ -122,7 +120,8 @@ router.post('/contact', authenticate, async (req, res) => {
 
 });
 
-// Logout page 
+
+// Logout  ka page 
 router.get('/logout', (req, res) => {
     console.log(`Hello my Logout Page`);
     res.clearCookie('jwtoken', { path: '/' });
