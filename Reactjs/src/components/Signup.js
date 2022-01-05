@@ -5,7 +5,7 @@ import signpic from "../images/signup.svg";
 const Signup = () => {
     const history = useHistory();
     const [user, setUser] = useState({
-        first_name: "",last_name: "", email: "", phone: "", address: "", password: "", cpassword: ""
+        first_name: "", last_name:"", email: "", phone: "", address: "", password: "", cpassword: ""
     });
 
     let name, value;
@@ -23,24 +23,25 @@ const Signup = () => {
         e.preventDefault();
 
         const { first_name, last_name, email, phone, address, password, cpassword } = user;
-
+        console.log('clicked register');
         const res = await fetch("/register", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                name, email, phone, work, password, cpassword
+                first_name, last_name, email, phone, address, password, cpassword
             })
         });
 
         const data = await res.json();
-
+        console.log('data');
         // I need to change the data to res 
         if (data.status === 422 || !data) {
             window.alert("INvalid Registration");
             console.log("INvalid Registration");
         } else {
+            console.log('registration successfull');
              window.alert(" Registration Successfull");
             console.log("Successfull Registration");
 
@@ -62,10 +63,10 @@ const Signup = () => {
                                     <label htmlFor="name">
                                         <i className="zmdi zmdi-account material-icons-name"></i>
                                     </label>
-                                    <input type="text" name="firstname" id="firstname" autocomplete="off"
+                                    <input type="text" name="first_name" id="name" autocomplete="off"
                                         value={user.first_name}
                                         onChange={handleInputs}
-                                        placeholder="Your First Name"
+                                        placeholder="First Name"
                                     />
                                 </div>
 
@@ -73,10 +74,10 @@ const Signup = () => {
                                     <label htmlFor="name">
                                         <i className="zmdi zmdi-account material-icons-name"></i>
                                     </label>
-                                    <input type="text" name="lastname" id="lastname" autocomplete="off"
+                                    <input type="text" name="last_name" id="name" autocomplete="off"
                                         value={user.last_name}
                                         onChange={handleInputs}
-                                        placeholder="Your Last Name"
+                                        placeholder="Last Name"
                                     />
                                 </div>
 
@@ -102,14 +103,14 @@ const Signup = () => {
                                     />
                                 </div>
 
-                                <div className="form-group">
+                                 <div className="form-group">
                                     <label htmlFor="address">
-                                        <i className="zmdi zmdi-address material-icons-name"></i>
+                                        <i className="zmdi zmdi-slideshow material-icons-name"></i>
                                     </label>
-                                    <input type="address" name="address" id="address" autoComplete="off"
+                                    <input type="text" name="address" id="work" autoComplete="off"
                                         value={user.address}
                                         onChange={handleInputs}
-                                        placeholder="Your address"
+                                        placeholder="Your Address"
                                     />
                                 </div>
 
