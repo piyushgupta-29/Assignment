@@ -6,7 +6,8 @@
   2. Run npm/yarn install in reactjs and server folder to download all the dependencies.
   3. In conn.js, change the DB variable to your local mongoDB.
   4. Change the PORT in app.js to 5000.
-  5. Run node app.js in server, and npm start in reactjs folder simultaneously.
+  5. In userSchema.js on line 85, change process.env.SECRET_KEY to 'thisisiriatechinnovationsandtechnologypvtltd'(or anything greater than 32 characters)
+  6. Run node app.js in server, and npm start in reactjs folder simultaneously.
   
   The details of the files in the repo are as follows:
   There are two folders named server and Reactjs.The server folder contains all the backend part including database.The Reactjs contains all the frontend part.
