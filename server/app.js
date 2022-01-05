@@ -23,7 +23,6 @@ app.get('/signup', (req, res) => {
 app.listen(PORT, (err) => {
     if(!err)
     {
-        alert("Hello, nice to see you Iriatech Innovation & technology Pvt Ltd");
         console.log(`server is runnig at port no ${PORT}`);
     }
     else    
