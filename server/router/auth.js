@@ -9,7 +9,7 @@ require('../db/conn');
 const User = require("../model/userSchema");
 
 router.get('/', (req, res) => {
-    res.send(`Hello world from the server rotuer js`);
+    res.send(`Hello, nice to see you again. Iriatech Innovations & Technology Pvt Ltd`);
 });
 
 router.post('/register', async (req, res) => {
